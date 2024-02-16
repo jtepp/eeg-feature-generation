@@ -64,7 +64,7 @@ def gen_training_matrix(directory_path, output_file, cols_to_ignore):
 		elif state.lower() == 'relaxing':
 			state = 0.
 		elif state.lower() == 'unlabelled':
-			state = None
+			state = 0
 		else:
 			print ('Wrong file name', x)
 			sys.exit(-1)
@@ -114,6 +114,8 @@ if __name__ == '__main__':
 	if len(sys.argv) < 3:
 		print ('arg1: input dir\narg2: output file')
 		sys.exit(-1)
-	directory_path = sys.argv[1]
-	output_file = sys.argv[2]
+	# path = os.path.dirname(os.path.realpath(__file__)) # this is the directory that the code is being run from
+    
+	directory_path = sys.argv[1] # path + "/../dataset/our_data_single"
+	output_file = sys.argv[2] # "out.csv"
 	gen_training_matrix(directory_path, output_file, cols_to_ignore = -1)

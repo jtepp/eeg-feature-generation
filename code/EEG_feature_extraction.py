@@ -867,8 +867,6 @@ def generate_feature_vectors_from_samples(file_path, nsamples, period,
 		# If there was no previous vector we just set it and continue 
 		# with the next vector.
 		r, headers = calc_feature_vector(ry, state)
-		if headers is None:
-			headers = []
 		
 		if previous_vector is not None:
 			# If there is a previous vector, the script concatenates the two 
