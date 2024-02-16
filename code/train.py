@@ -14,7 +14,8 @@ import pickle
 import numpy as np
 
 # Load the data
-df = pd.read_csv('out.csv')
+# df = pd.read_csv('out_schaffer.csv')
+df = pd.read_csv('merged_labelled.csv')
 
 if 'Timestamp' in df.columns:
     df = df.drop(['Timestamp'], axis=1)

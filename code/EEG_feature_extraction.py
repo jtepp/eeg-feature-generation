@@ -757,7 +757,7 @@ def calc_feature_vector(matrix, state):
 	# var_names += v
 	# var_values = np.hstack([var_values, x])
 	
-	x, v = feature_fft(matrix)
+	x, v = feature_fft(matrix, get_power_spectrum=False)
 	var_names += v
 	var_values = np.hstack([var_values, x])
 	
