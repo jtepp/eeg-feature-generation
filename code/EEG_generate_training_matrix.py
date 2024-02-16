@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*-
 
 """
+python code/EEG_generate_training_matrix.py dataset/original_data/ out.csv
+
 ## Version history:
 
 2018:
@@ -54,11 +56,15 @@ def gen_training_matrix(directory_path, output_file, cols_to_ignore):
 			print ('Wrong file name', x)
 			sys.exit(-1)
 		if state.lower() == 'concentrating':
-			state = 2.
+			state = 1.
 		elif state.lower() == 'neutral':
 			state = 1.
 		elif state.lower() == 'relaxed':
 			state = 0.
+		elif state.lower() == 'relaxing':
+			state = 0.
+		elif state.lower() == 'unlabelled':
+			state = None
 		else:
 			print ('Wrong file name', x)
 			sys.exit(-1)
@@ -66,7 +72,7 @@ def gen_training_matrix(directory_path, output_file, cols_to_ignore):
 		print ('Using file', x)
 		full_file_path = directory_path  +   '/'   + x
 		vectors, header = generate_feature_vectors_from_samples(file_path = full_file_path, 
-														        nsamples = 150, 
+														        nsamples = 200, 
 																period = 1.,
 																state = state,
 														        remove_redundant = True,
