@@ -2,7 +2,7 @@ import pandas as pd
 import pickle
 from sklearn.model_selection import train_test_split
 
-df = pd.read_csv('out_test.csv')
+df = pd.read_csv('out_conc-0.csv')
 
 X = df.drop('Label', axis=1)
 # y = df['Label']
@@ -13,9 +13,6 @@ X = df.drop('Label', axis=1)
 filename = 'random_forest_model.pkl'
 model = pickle.load(open(filename, 'rb'))
 
-input = X.iloc[0]
-input = input.values.reshape(1, -1)
-# result = model.predict(input)
 probabilities = model.predict_proba(X)
 
 # average every 2nd index of every array in this array

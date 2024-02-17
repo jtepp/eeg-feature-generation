@@ -7,7 +7,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn import tree
 from pandas.plotting import scatter_matrix
 
-df = pd.read_csv('out_schaffer.csv')
+df = pd.read_csv('out_our.csv')
 
 X = df.drop('Label', axis=1)
 y = df['Label']
@@ -16,7 +16,7 @@ y = df['Label']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 # load the model from disk
-filename = 'good_model_RF.pkl'
+filename = 'random_forest_model.pkl'
 model = pickle.load(open(filename, 'rb'))
 
 # Visualize the first tree from the forest

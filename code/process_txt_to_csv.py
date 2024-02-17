@@ -19,9 +19,9 @@ def process_file(input_filename):
     df.to_csv(output_filename, index=False, header=False)
 
 # Example usage:
-process_file('Relaxing_1.txt')
+# process_file('Relaxing_1.txt')
     
 
-# for filename in os.listdir('.'):
-#     if filename.endswith('.txt'):
-#         process_file(filename)
+for filename in os.listdir('.'):
+    if filename.endswith('.txt'):
+        process_file(filename)
