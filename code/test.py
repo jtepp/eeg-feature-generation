@@ -2,15 +2,15 @@ import pandas as pd
 import pickle
 from sklearn.model_selection import train_test_split
 
-df = pd.read_csv('out_relaxing.csv')
+df = pd.read_csv('out_test.csv')
 
 X = df.drop('Label', axis=1)
-y = df['Label']
+# y = df['Label']
 
 
 
 # load the model from disk
-filename = 'good_model_RF.pkl'
+filename = 'random_forest_model.pkl'
 model = pickle.load(open(filename, 'rb'))
 
 input = X.iloc[0]

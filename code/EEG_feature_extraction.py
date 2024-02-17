@@ -705,9 +705,9 @@ def calc_feature_vector(matrix, state):
 	var_names += v
 	var_values = np.hstack([var_values, x])
 
-	# x, v = feature_mean_q(q1, q2, q3, q4)
-	# var_names += v
-	# var_values = np.hstack([var_values, x])
+	x, v = feature_mean_q(q1, q2, q3, q4)
+	var_names += v
+	var_values = np.hstack([var_values, x])
 	
 	x, v = feature_stddev(matrix)
 	var_names += v
@@ -717,9 +717,9 @@ def calc_feature_vector(matrix, state):
 	var_names += v
 	var_values = np.hstack([var_values, x])
 	
-	# x, v = feature_moments(matrix)
-	# var_names += v
-	# var_values = np.hstack([var_values, x])
+	x, v = feature_moments(matrix)
+	var_names += v
+	var_values = np.hstack([var_values, x])
 	
 	x, v = feature_max(matrix)
 	var_names += v
@@ -729,9 +729,9 @@ def calc_feature_vector(matrix, state):
 	var_names += v
 	var_values = np.hstack([var_values, x])
 
-	# x, v = feature_max_q(q1, q2, q3, q4)
-	# var_names += v
-	# var_values = np.hstack([var_values, x])
+	x, v = feature_max_q(q1, q2, q3, q4)
+	var_names += v
+	var_values = np.hstack([var_values, x])
 	
 	x, v = feature_min(matrix)
 	var_names += v
@@ -741,21 +741,21 @@ def calc_feature_vector(matrix, state):
 	var_names += v
 	var_values = np.hstack([var_values, x])
 
-	# x, v = feature_min_q(q1, q2, q3, q4)
-	# var_names += v
-	# var_values = np.hstack([var_values, x])
+	x, v = feature_min_q(q1, q2, q3, q4)
+	var_names += v
+	var_values = np.hstack([var_values, x])
 	
-	# x, v, covM = feature_covariance_matrix(matrix)
-	# var_names += v
-	# var_values = np.hstack([var_values, x])
+	x, v, covM = feature_covariance_matrix(matrix)
+	var_names += v
+	var_values = np.hstack([var_values, x])
 	
-	# x, v = feature_eigenvalues(covM)
-	# var_names += v
-	# var_values = np.hstack([var_values, x])
+	x, v = feature_eigenvalues(covM)
+	var_names += v
+	var_values = np.hstack([var_values, x])
 	
-	# x, v, log_cov = feature_logcov(covM)
-	# var_names += v
-	# var_values = np.hstack([var_values, x])
+	x, v, log_cov = feature_logcov(covM)
+	var_names += v
+	var_values = np.hstack([var_values, x])
 	
 	x, v = feature_fft(matrix)
 	var_names += v
@@ -884,7 +884,7 @@ def generate_feature_vectors_from_samples(file_path, nsamples, period,
 			 # Remove the label (last column) of previous vector
 			previous_vector = previous_vector[:-1] 
 
-	feat_names = headers # ["lag1_" + s for s in headers[:-1]] + headers
+	feat_names = ["lag1_" + s for s in headers[:-1]] + headers
 	
 	# if remove_redundant:
 	# 	# Remove redundant lag window features
