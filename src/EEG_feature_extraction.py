@@ -780,7 +780,7 @@ state: label for the feature vector
 def generate_feature_vectors_from_samples(file_path, nsamples, period, 
 										  state = None, 
 										  remove_redundant = True,
-										  cols_to_ignore = None):
+										  cols_to_ignore = None, mtx = None):
 	"""
 	Reads data from CSV file in "file_path" and extracts statistical features 
 	for each time window of width "period". 
@@ -826,7 +826,7 @@ def generate_feature_vectors_from_samples(file_path, nsamples, period,
 		Reimplemented: [fcampelo]
 	"""	
 	# Read the matrix from file
-	matrix = matrix_from_csv_file(file_path)
+	matrix = matrix_from_csv_file(file_path) if file_path is not None else mtx
 	
 	# We will start at the very begining of the file
 	t = 0.
