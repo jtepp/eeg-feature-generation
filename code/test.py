@@ -2,7 +2,7 @@ import pandas as pd
 import pickle
 from sklearn.model_selection import train_test_split
 
-df = pd.read_csv('out_test.csv')
+df = pd.read_csv('out_test_concentration_just_2.csv')
 
 X = df.drop('Label', axis=1)
 # y = df['Label']
